@@ -25,7 +25,8 @@ public class GameControl : MonoBehaviour
     {
         Sounds[1].Play();
         ClickedObject = Objem;
-        ClickedObject.GetComponent<Image>().sprite = ClickedObject.GetComponentInChildren<SpriteRenderer>().sprite;        
+        ClickedObject.GetComponent<Image>().sprite = ClickedObject.GetComponentInChildren<SpriteRenderer>().sprite;
+        ClickedObject.GetComponent<Image>().raycastTarget = false;
     }
 
     public void ButtonClicked(int value)
@@ -63,7 +64,10 @@ public class GameControl : MonoBehaviour
         {
             Sounds[3].Play();
             SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
-            ClickedObject.GetComponent<Image>().sprite = DefaultSprite;           
+            ClickedObject.GetComponent<Image>().sprite = DefaultSprite;
+            SelectedButton.GetComponent<Image>().raycastTarget = true;
+            ClickedObject.GetComponent<Image>().raycastTarget = true;
+
             Debug.Log("eþleþmedi");
             firstchoicevalue = 0;
             SelectedButton = null;
