@@ -42,8 +42,11 @@ public class GameControl : MonoBehaviour
         {
             if (firstchoicevalue == SelectedValue)
             {
+                Destroy(SelectedButton.gameObject);
+                Destroy(SelectedObject.gameObject);
                 Debug.Log("eþleþti");
                 firstchoicevalue = 0;
+                SelectedButton = null;
             }
             else
             {
@@ -51,6 +54,7 @@ public class GameControl : MonoBehaviour
                 SelectedObject.GetComponent<Image>().sprite = DefaultSprite;
                 Debug.Log("eþleþmedi");
                 firstchoicevalue = 0;
+                SelectedButton = null;
             }
 
         }
