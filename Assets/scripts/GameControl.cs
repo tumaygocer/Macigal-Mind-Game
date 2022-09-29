@@ -28,22 +28,22 @@ public class GameControl : MonoBehaviour
 
     public void ButtonClicked(int value)
     {
-        Control(value, ClickedObject);
+        Control(value);
     }
 
-    void Control(int SelectedValue, GameObject SelectedObject)
+    void Control(int SelectedValue)
     {
         if (firstchoicevalue == 0)
         {
             firstchoicevalue = SelectedValue;
-            SelectedButton = SelectedObject;
+            SelectedButton = ClickedObject;
         }
         else
         {
             if (firstchoicevalue == SelectedValue)
             {
                 Destroy(SelectedButton.gameObject);
-                Destroy(SelectedObject.gameObject);
+                Destroy(ClickedObject.gameObject);
                 Debug.Log("eþleþti");
                 firstchoicevalue = 0;
                 SelectedButton = null;
@@ -51,7 +51,7 @@ public class GameControl : MonoBehaviour
             else
             {
                 SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
-                SelectedObject.GetComponent<Image>().sprite = DefaultSprite;
+                ClickedObject.GetComponent<Image>().sprite = DefaultSprite;
                 Debug.Log("eþleþmedi");
                 firstchoicevalue = 0;
                 SelectedButton = null;
