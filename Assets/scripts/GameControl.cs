@@ -11,6 +11,7 @@ public class GameControl : MonoBehaviour
     GameObject ClickedObject;
     public Sprite DefaultSprite;
     GameObject SelectedButton;
+    public AudioSource[] Sounds;
     
 
 
@@ -22,8 +23,9 @@ public class GameControl : MonoBehaviour
 
     public void SelectObject(GameObject Objem)
     {
+        Sounds[1].Play();
         ClickedObject = Objem;
-        ClickedObject.GetComponent<Image>().sprite = ClickedObject.GetComponentInChildren<SpriteRenderer>().sprite;
+        ClickedObject.GetComponent<Image>().sprite = ClickedObject.GetComponentInChildren<SpriteRenderer>().sprite;        
     }
 
     public void ButtonClicked(int value)
@@ -50,16 +52,18 @@ public class GameControl : MonoBehaviour
 
         if (firstchoicevalue == SelectedValue)
         {
+            Sounds[2].Play();
             Destroy(SelectedButton.gameObject);
-            Destroy(ClickedObject.gameObject);
+            Destroy(ClickedObject.gameObject);           
             Debug.Log("eþleþti");
             firstchoicevalue = 0;
             SelectedButton = null;
         }
         else
         {
+            Sounds[3].Play();
             SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
-            ClickedObject.GetComponent<Image>().sprite = DefaultSprite;
+            ClickedObject.GetComponent<Image>().sprite = DefaultSprite;           
             Debug.Log("eþleþmedi");
             firstchoicevalue = 0;
             SelectedButton = null;
