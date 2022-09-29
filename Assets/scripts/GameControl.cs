@@ -40,23 +40,29 @@ public class GameControl : MonoBehaviour
         }
         else
         {
-            if (firstchoicevalue == SelectedValue)
-            {
-                Destroy(SelectedButton.gameObject);
-                Destroy(ClickedObject.gameObject);
-                Debug.Log("eþleþti");
-                firstchoicevalue = 0;
-                SelectedButton = null;
-            }
-            else
-            {
-                SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
-                ClickedObject.GetComponent<Image>().sprite = DefaultSprite;
-                Debug.Log("eþleþmedi");
-                firstchoicevalue = 0;
-                SelectedButton = null;
-            }
+            StartCoroutine(StandbyTime(SelectedValue));
 
+        }
+    }
+    IEnumerator StandbyTime(int SelectedValue)
+    {
+        yield return new WaitForSeconds(1);
+
+        if (firstchoicevalue == SelectedValue)
+        {
+            Destroy(SelectedButton.gameObject);
+            Destroy(ClickedObject.gameObject);
+            Debug.Log("eþleþti");
+            firstchoicevalue = 0;
+            SelectedButton = null;
+        }
+        else
+        {
+            SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
+            ClickedObject.GetComponent<Image>().sprite = DefaultSprite;
+            Debug.Log("eþleþmedi");
+            firstchoicevalue = 0;
+            SelectedButton = null;
         }
     }
 }
