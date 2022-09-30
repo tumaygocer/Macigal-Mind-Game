@@ -30,13 +30,13 @@ public class GameControl : MonoBehaviour
         ClickedObject.GetComponent<Image>().raycastTarget = false;
     }
 
-    public void Statusofbuttons(bool durum)
+    public void Statusofbuttons(bool status)
     {
         foreach (var item in Buttons)
         {
             if (item != null)
             {
-                item.GetComponent<Image>().raycastTarget = durum;
+                item.GetComponent<Image>().raycastTarget = status;
             }
             
         }
