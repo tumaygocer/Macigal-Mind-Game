@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameControl : MonoBehaviour
 {
@@ -13,13 +14,25 @@ public class GameControl : MonoBehaviour
     GameObject SelectedButton;
     public AudioSource[] Sounds;
     public GameObject[] Buttons;
-    
+    float TotalTime = 120;
+    float minute;
+    float second;
+    public TextMeshProUGUI counter;
 
 
 
     void Start()
     {
         firstchoicevalue = 0;
+    }
+    private void Update()
+    {
+        TotalTime -= Time.deltaTime;
+        minute = Mathf.FloorToInt(TotalTime / 60);
+        second = Mathf.FloorToInt(TotalTime % 60);
+        //counter.text = Mathf.FloorToInt(TotalTime).ToString();
+        counter.text = string.Format("{0:00}:{1:00}", minute, second);
+
     }
 
     public void SelectObject(GameObject Objem)
