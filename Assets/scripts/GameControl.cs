@@ -12,6 +12,7 @@ public class GameControl : MonoBehaviour
     public Sprite DefaultSprite;
     GameObject SelectedButton;
     public AudioSource[] Sounds;
+    public GameObject[] Buttons;
     
 
 
@@ -27,6 +28,14 @@ public class GameControl : MonoBehaviour
         ClickedObject = Objem;
         ClickedObject.GetComponent<Image>().sprite = ClickedObject.GetComponentInChildren<SpriteRenderer>().sprite;
         ClickedObject.GetComponent<Image>().raycastTarget = false;
+    }
+
+    public void Statusofbuttons(bool status)
+    {
+        foreach (var item in Buttons)
+        {
+            item.GetComponent<Image>().raycastTarget = status;
+        }
     }
 
     public void ButtonClicked(int value)
@@ -49,6 +58,7 @@ public class GameControl : MonoBehaviour
     }
     IEnumerator StandbyTime(int SelectedValue)
     {
+        Statusofbuttons(false);
         yield return new WaitForSeconds(1);
 
         if (firstchoicevalue == SelectedValue)
@@ -59,18 +69,17 @@ public class GameControl : MonoBehaviour
             Debug.Log("eþleþti");
             firstchoicevalue = 0;
             SelectedButton = null;
+            Statusofbuttons(true);
         }
         else
         {
             Sounds[3].Play();
             SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
             ClickedObject.GetComponent<Image>().sprite = DefaultSprite;
-            SelectedButton.GetComponent<Image>().raycastTarget = true;
-            ClickedObject.GetComponent<Image>().raycastTarget = true;
-
             Debug.Log("eþleþmedi");
             firstchoicevalue = 0;
             SelectedButton = null;
+            Statusofbuttons(true);
         }
     }
 }
