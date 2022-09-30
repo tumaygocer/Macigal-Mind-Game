@@ -68,9 +68,12 @@ public class GameControl : MonoBehaviour
         if (firstchoicevalue == SelectedValue)
         {
             Sounds[2].Play();
-            Destroy(SelectedButton.gameObject);
-            Destroy(ClickedObject.gameObject);           
-            Debug.Log("eþleþti");
+            SelectedButton.GetComponent<Image>().enabled = false;
+            SelectedButton.GetComponent<Button>().enabled = false;
+            ClickedObject.GetComponent<Image>().enabled = false;           
+            ClickedObject.GetComponent<Button>().enabled = false;
+            //Destroy(SelectedButton.gameObject);
+            //Destroy(ClickedObject.gameObject);                      
             firstchoicevalue = 0;
             SelectedButton = null;
             Statusofbuttons(true);
@@ -79,8 +82,7 @@ public class GameControl : MonoBehaviour
         {
             Sounds[3].Play();
             SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
-            ClickedObject.GetComponent<Image>().sprite = DefaultSprite;
-            Debug.Log("eþleþmedi");
+            ClickedObject.GetComponent<Image>().sprite = DefaultSprite;            
             firstchoicevalue = 0;
             SelectedButton = null;
             Statusofbuttons(true);
