@@ -14,7 +14,7 @@ public class GameControl : MonoBehaviour
     GameObject SelectedButton;
     public AudioSource[] Sounds;
     public GameObject[] Buttons;
-    float TotalTime = 3;
+    float TotalTime = 120;
     float minute;
     float second;
     public TextMeshProUGUI counter;
@@ -53,6 +53,18 @@ public class GameControl : MonoBehaviour
     {
         Endgamepanels[1].SetActive(true);
     }
+    public void GamePaused()
+    {
+        Endgamepanels[2].SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void KeepPlaying()
+    {
+        Endgamepanels[2].SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void HomePage()
     {
         SceneManager.LoadScene(0);
