@@ -65,7 +65,7 @@ public class GameControl : MonoBehaviour
 
     public void SelectObject(GameObject Objem)
     {
-        Sounds[1].Play();
+        Sounds[0].Play();
         ClickedObject = Objem;
         ClickedObject.GetComponent<Image>().sprite = ClickedObject.GetComponentInChildren<SpriteRenderer>().sprite;
         ClickedObject.GetComponent<Image>().raycastTarget = false;
@@ -108,7 +108,7 @@ public class GameControl : MonoBehaviour
         if (firstchoicevalue == SelectedValue)
         {
             InstantSuccess++;
-            Sounds[2].Play();
+            Sounds[1].Play();
             SelectedButton.GetComponent<Image>().enabled = false;
             SelectedButton.GetComponent<Button>().enabled = false;
             ClickedObject.GetComponent<Image>().enabled = false;           
@@ -125,7 +125,7 @@ public class GameControl : MonoBehaviour
         }
         else
         {
-            Sounds[3].Play();
+            Sounds[2].Play();
             SelectedButton.GetComponent<Image>().sprite = DefaultSprite;
             ClickedObject.GetComponent<Image>().sprite = DefaultSprite;            
             firstchoicevalue = 0;
