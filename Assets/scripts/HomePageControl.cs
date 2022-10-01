@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class HomePageControl : MonoBehaviour
 {
-    public void SatartGame()
+   
+    public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
