@@ -53,6 +53,18 @@ public class GameControl : MonoBehaviour
     {
         Endgamepanels[1].SetActive(true);
     }
+
+    public void GamePaused()
+    {
+        Time.timeScale = 0;
+        Endgamepanels[2].SetActive(true);
+    }
+
+    public void KeepPlaying()
+    {
+        Time.timeScale = 1;
+        Endgamepanels[2].SetActive(false);
+    }
     public void HomePage()
     {
         SceneManager.LoadScene(0);
