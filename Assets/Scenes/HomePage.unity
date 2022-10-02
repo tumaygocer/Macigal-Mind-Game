@@ -934,6 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190530397}
   - component: {fileID: 1190530399}
+  - component: {fileID: 1190530400}
   m_Layer: 0
   m_Name: "AnaMen\xFCSes"
   m_TagString: Untagged
@@ -1052,6 +1053,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1190530400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190530395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd9891bf2c0eea4a9d8bab5d2cd4e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1342300942
 GameObject:
   m_ObjectHideFlags: 0

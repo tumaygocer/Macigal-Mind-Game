@@ -14,7 +14,7 @@ public class GameControl : MonoBehaviour
     GameObject SelectedButton;
     public AudioSource[] Sounds;
     public GameObject[] Buttons;
-    float TotalTime = 3;
+    float TotalTime = 120;
     float minute;
     float second;
     public TextMeshProUGUI counter;
