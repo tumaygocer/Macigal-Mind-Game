@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class HomePageControl : MonoBehaviour
 {
     public GameObject ExitPanel;
+
+    private void Start()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }       
+    }
     public void GameExit()
     {       
         ExitPanel.SetActive(true);
